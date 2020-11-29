@@ -1,9 +1,9 @@
 import React from 'react';
 import {useState} from 'react';
-import './LoginForm.css'
+import './SignupForm.css'
 
-function LoginForm(props) {
-    const {login} = props
+function SignUp(props) {
+    const {signup} = props
 
     const [userInfo, setUserInfo] = useState({
         username: '',
@@ -11,7 +11,7 @@ function LoginForm(props) {
     });
 
     const [errors, setErrors] = useState({
-        loginValidationError: false,
+        signupValidationError: false,
     })
 
     const usernameChanged = (event) => {
@@ -28,44 +28,45 @@ function LoginForm(props) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const loginSuccess = await login(userInfo);
+        const example = {
+            name: "alex", "password": "alan101", "phone": "66666666", "email": "aeb@gmail"
+        }
+
+        // const loginSuccess = await signup(userInfo); TODO: use for real
+        const loginSuccess = await signup(example);
         if (!loginSuccess) {
             const newErrors = {...errors, loginValidationError: true};
             setErrors(newErrors)
         }
     }
 
-    const loginForm = <form className="login-form">
+    const signupForm = <form className="Sign-up">
         <input type="text" placeholder="username" onChange={usernameChanged}/>
         <input type="password" placeholder="password" onChange={passwordChanged}/>
-        <button onClick={handleSubmit}>login</button>
-        <p className="message"><a href="#">Sign Up</a></p>
-    </form>;
-
-    const erroredLoginForm = <form className="login-form">
-        "derp"
+        <button onClick={handleSubmit}>Sign Up</button>
+        <p className="message"><a href="#">Login</a></p>
     </form>;
 
     return (
         <div>
-            <div className="login-page">
+            <div className="Sign-up">
                 <div className="form">
-                    <form className="register-form">
+                    <form className="Sign-up">
                         <div className="header">
-                            <h1>Header</h1>
+                            <h1>Sign Up</h1>
                             <p>Travel Tryst</p>
                         </div>
                         <input type="text" placeholder="name"/>
                         <input type="password" placeholder="password"/>
                         <input type="text" placeholder="email address"/>
-                        <button>create</button>
-                        <p className="message">Already registered? <a href="#">Sign In</a></p>
+                        <input type="text" placeholder="Phone Number"/>
+                        <button onClick={handleSubmit}>create</button>
+                        <p className="message">Already registered? <a href="#">Login</a></p>
                     </form>
-                    {errors.loginValidationError ? erroredLoginForm : loginForm}
                 </div>
             </div>
         </div>
     )
 }
 
-export default LoginForm;
+export default SignUp;

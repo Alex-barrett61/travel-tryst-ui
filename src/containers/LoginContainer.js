@@ -1,17 +1,13 @@
 import React from 'react';
 import LoginForm from "../components/LoginForm/LoginForm";
+import {login} from '../utils/auth';
 
 function LoginContainer() {
-    const login = () => {
-        console.log('fetch here')
-    }
-
     return (
         <div>
-            Login Container
+            Login Page
             <LoginForm login={login}/>
-        </div>
-    )
+        </div>)
 }
 
 export default LoginContainer;
