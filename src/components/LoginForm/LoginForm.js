@@ -3,7 +3,7 @@ import {useState} from 'react';
 import './LoginForm.css'
 
 function LoginForm(props) {
-    const {login} = props
+    const {login, history} = props
 
     const [userInfo, setUserInfo] = useState({
         username: '',
@@ -35,11 +35,15 @@ function LoginForm(props) {
         }
     }
 
+    const goToSignup = () => {
+        history.push('/signup')
+    }
+
     const loginForm = <form className="login-form">
         <input type="text" placeholder="username" onChange={usernameChanged}/>
         <input type="password" placeholder="password" onChange={passwordChanged}/>
         <button onClick={handleSubmit}>login</button>
-        <p className="message"><a href="#">Sign Up</a></p>
+        <p className="message"><a onClick={goToSignup}>Sign Up</a></p>
     </form>;
 
     const erroredLoginForm = <form className="login-form">

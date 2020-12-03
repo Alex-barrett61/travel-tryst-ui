@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 import SignupForm from "../components/SignupForm/SignupForm";
 import {login} from '../utils/auth';
 
@@ -40,4 +41,4 @@ function SignupContainer() {
         </div>)
 }
 
-export default SignupContainer;
+export default withRouter(SignupContainer);

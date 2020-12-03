@@ -1,13 +1,14 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 import LoginForm from "../components/LoginForm/LoginForm";
 import {login} from '../utils/auth';
 
-function LoginContainer() {
+function LoginContainer({ history }) {
     return (
         <div>
             Login Page
-            <LoginForm login={login}/>
+            <LoginForm history={history} login={login}/>
         </div>)
 }
 
-export default LoginContainer;
+export default withRouter(LoginContainer);

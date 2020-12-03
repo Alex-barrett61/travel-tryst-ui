@@ -40,13 +40,6 @@ function SignUp(props) {
         }
     }
 
-    const signupForm = <form className="Sign-up">
-        <input type="text" placeholder="username" onChange={usernameChanged}/>
-        <input type="password" placeholder="password" onChange={passwordChanged}/>
-        <button onClick={handleSubmit}>Sign Up</button>
-        <p className="message"><a href="#">Login</a></p>
-    </form>;
-
     return (
         <div>
             <div className="Sign-up">
